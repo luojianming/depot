@@ -9,5 +9,20 @@ class ApplicationController < ActionController::Base
     cart
   end
 
+  def access_count
+    if session[:counter].nil?
+      counter = 1
+      session[:counter] = counter
+      counter
+    else
+      session[:counter] = session[:counter]+1
+      session[:counter]
+    end
+  end
+
+  def clear_counter
+    session[:counter] = 0
+  end
+
   
 end
